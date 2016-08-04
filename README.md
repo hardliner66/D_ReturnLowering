@@ -34,7 +34,7 @@ which is clearly overloadable.
 
 While implementing this, I also recognized that one could implement multiple return values the same way. So I tried that too.
 
-Now, with the help of mixins, I implemented both. (see app.d for some examples)
+Now, with the help of mixins, I implemented both. (see [app.d](source/app.d) for some examples)
 
 Only two things are not implemented:
 Ignoring of a return value and assigning to a variable with type auto. For this I'm missing some information about the argument types of the function that will be called.
