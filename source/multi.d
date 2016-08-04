@@ -52,14 +52,30 @@ template call(string functionCall) {
     if (hasArguments(functionCallString)) {
       prefix = ", ";
     }
+
+    string[string] declarations;
     
     auto arguments = "";
     foreach (value; returnValues) {
-      arguments ~= prefix ~ value.strip();
+      value = value.strip();
+      if (value.indexOf(" ") > -1) {
+        string name, type;
+        splitInTwo(value, " ", type, name);
+        declarations[name] = type;
+        arguments ~= prefix ~ name;
+      } else {
+        arguments ~= prefix ~ value;
+      } 
       prefix = ", ";
     }
 
-    return functionCallString.replace(")", arguments ~ ");");
+    auto prolog = "\n";
+
+    foreach(name, type; declarations) {
+      prolog ~= type ~ " " ~ name ~ ";\n";
+    }
+
+    return prolog ~ functionCallString.replace(")", arguments ~ ");");
   }
 }
 

@@ -32,9 +32,8 @@ void main()
   }
 
   int c;
-  string d;
   mixin(call!("c = overloadByReturnType()"));
-  mixin(call!("d = overloadByReturnType()"));
+  mixin(call!("string d = overloadByReturnType()"));
 
   writefln("a = %d, b = %d, c = %d, d = %s", a, b, c, d);
 }
