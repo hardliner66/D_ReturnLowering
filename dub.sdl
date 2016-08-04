@@ -1,0 +1,5 @@
+name "multireturn"
+description "A minimal D application."
+authors "sbiedermann"
+copyright "Copyright © 2016, sbiedermann"
+license "proprietary"
