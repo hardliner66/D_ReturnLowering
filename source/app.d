@@ -8,7 +8,9 @@ mixin(declare!(q{ int, int <= switchValues(int a, int b) }, q{
 // gets translated to =>
 version (none) {
   void switchValues(int a, int b, out int _RANDOM_RESULT_PREFIX_0, out int _RANDOM_RESULT_PREFIX_1) {
-    return b, a;
+    _RANDOM_RESULT_PREFIX_0 = b;
+    _RANDOM_RESULT_PREFIX_1 = a;
+    return;
   }
 }
 
